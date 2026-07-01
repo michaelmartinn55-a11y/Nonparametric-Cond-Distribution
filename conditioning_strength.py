@@ -21,7 +21,7 @@ delta_lls = []
 # ======== Parameters ========
 b = 100		#burn-in
 f = 5		#forward shift for outcomes
-p = 0.02	#kernel bandwidth
+p = 0.005	#kernel bandwidth
 
 # ======== Data Preparation ========
 y = np.log(c.shift(-f) / c)
