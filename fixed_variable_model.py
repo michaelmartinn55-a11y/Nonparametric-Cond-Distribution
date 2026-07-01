@@ -2,21 +2,21 @@ import yfinance as yf
 import numpy as np
 import pandas as pd
 
-spy = yf.download("SPY", period="3y", interval="1d")
+spy = yf.download("SPY", period="5y", interval="1d")
 
 c = spy["Close"].squeeze()
 r = np.log(c).diff()
 x = pd.DataFrame({
-     "momentum": np.log(c/c.shift(20))
+     "momentum": np.log(c/c.shift(60))
 })
 
 array = x.to_numpy()
 
 # ======== Parameters ========
-b = 40		#burn-in
-h = 2		#condition aggression
+b = 100		#burn-in
+h = 4		#condition aggression
 f = 5		#forward shift of outcomes
-p = 0.02	#kernel bandwidth
+p = 0.005	#kernel bandwidth
 
 # ======== Data Preparation ========
 y = np.log(c.shift(-f) / c)
