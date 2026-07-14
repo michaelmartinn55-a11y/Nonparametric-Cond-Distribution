@@ -38,7 +38,7 @@ for h in h_values:
   uncond_den = []
 
   # ======== Time series loop ========
-  for t in range (b,len(array)-f):
+  for t in range (b,len(array)):
 
     hist_array = array[:t]
     current_x = array[t]
